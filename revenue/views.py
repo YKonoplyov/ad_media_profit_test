@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from revenue.models import RevenueStatistic
+from revenue.serializers import RevenueStatisticSerializer
+
+
+class RevenueStatisticViewSet(ModelViewSet):
+    serializer_class = RevenueStatisticSerializer
+    queryset = RevenueStatistic.objects.all()
