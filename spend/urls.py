@@ -5,11 +5,11 @@ from rest_framework.routers import DefaultRouter
 
 spend_router = DefaultRouter()
 
-spend_router.register("spend", SpendStatisticViewSet, basename="spend")
+spend_router.register("spend", SpendStatisticViewSet)
 
 urlpatterns = [
-    path('statistic/', GetSpendStatistic.as_view(), name="revenue-statistic"),
-    path("spend/", include(spend_router.urls)),
+    path("", include(spend_router.urls)),
+    path("spend_statistic/", GetSpendStatistic.as_view(), name="spend-statistic"),
 ]
 
 app_name = "spend"
